@@ -1,0 +1,18 @@
+﻿@model Contentful.Core.Models.ContentfulCollection<CreditCard>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1 class="display-4">Credit Cards</h1>
+
+@foreach (var card in Model.Items)
+{
+    <h2>@card.Issuer</h2>
+    <h2>@card.Fee</h2>
+    <h2>@card.Type</h2>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
