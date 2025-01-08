@@ -1,4 +1,5 @@
 using Contentful.AspNetCore;
+using MenulioPocMvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddHealthChecks();
 builder.Services.AddContentful(builder.Configuration);
+
+builder.Services.AddHttpClient<CustomerApiClient>(client =>
+{
+    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", builder.Configuration["CustomerApiClient.SubscriptionKey"]);
+});
+
 
 var app = builder.Build();
 
