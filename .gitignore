@@ -223,7 +223,7 @@ Cached/
 DOTNET/VR.FutureProof.Umbracosite/App_Data/cache/
 UI/VR-FPP.sublime-workspace
 DOTNET/packages/
-#/DOTNET/VR.FutureProof.Extensions.Tests/Properties
+#/DOTNET/MenulioPocMvc.Tests/Properties
 DOTNET/VR\.FutureProof\.Umbracosite/Properties/PublishProfiles/local iis\.pubxml
 /UI/src/assets/scss/pages/_partner-promotion.scss
 /DOTNET/VR.FutureProof.Umbracosite/Views/PartnerPromotionContainer.cshtml
