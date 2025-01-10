@@ -16,6 +16,7 @@ builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddControllersWithViews();
 builder.Services.AddHealthChecks();
 builder.Services.AddContentful(builder.Configuration);
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddHttpClient<HttpRequestClient>(client =>
 {
