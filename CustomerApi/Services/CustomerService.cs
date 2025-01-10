@@ -19,19 +19,19 @@ namespace MenulioPocMvc.CustomerApi.Services
         private readonly ILogger<CustomerService> _logger;
 
         private readonly IConfiguration _configuration;
-        private readonly ICustomerApiClient _customerApiClient;
+        private readonly IApiCalls _api;
         private readonly string _baseUri;
 
-        public CustomerService(ILogger<CustomerService> logger, IConfiguration configuration, ICustomerApiClient customerApiClient)
+        public CustomerService(ILogger<CustomerService> logger, IConfiguration configuration, IApiCalls apiClient)
         {
             _logger = logger;
             _configuration = configuration;
-            _customerApiClient = customerApiClient;
-            _baseUri = _configuration["CustomerApiClient:BaseUri"] ?? string.Empty;
+            _api = apiClient;
+            _baseUri = _configuration["CustomerApi:BaseUri"] ?? string.Empty;
 
             if (IsUrlValid(_baseUri))
             {
-                _baseUri = _configuration["CustomerApiClient:BaseUri"] ?? string.Empty;
+                _baseUri = _configuration["CustomerApi:BaseUri"] ?? string.Empty;
             }
             else
             {
@@ -53,7 +53,7 @@ namespace MenulioPocMvc.CustomerApi.Services
         {
             var body = JsonConvert.SerializeObject(CustomerMapper.MapRegistrationToJson(customer));
             string uri = _baseUri + "customer";
-            var apiResponse = await _customerApiClient.SendRequestAsync(HttpMethod.Post, uri, ContentType.Json, body);
+            var apiResponse = await _api.Post(uri, ContentType.Json, body);
             
             return FormatResponse(apiResponse, customer);
         }
@@ -209,7 +209,8 @@ namespace MenulioPocMvc.CustomerApi.Services
             var uri = _baseUri + "signin";
             var signInBody = string.Format(@"client_id=4e8ce86a9c914dd8a41c09e0709ef297&grant_type=password&Username={0}&Password={1}&ReferenceType=EMAIL", HttpUtility.UrlEncode(processedEmail), HttpUtility.UrlEncode(password));
 
-            var apiResponse = await _customerApiClient.SendRequestAsync(HttpMethod.Post, uri, ContentType.Xml, signInBody);
+            var apiResponse = await _api.Post(uri, ContentType.Xml, signInBody);
+            
             var newResponse = new SignInResponse();
             newResponse.Response = apiResponse.Response;
 
@@ -249,8 +250,8 @@ namespace MenulioPocMvc.CustomerApi.Services
         public async Task<Customer> GetCustomer(Guid customerId)
         {
             var uri = _baseUri + "customer/" + customerId;
-            BaseResponse apiResponse = await _customerApiClient.SendRequestAsync(HttpMethod.Get, uri, ContentType.Xml);
-
+            BaseResponse apiResponse = await _api.Get(uri, ContentType.Xml);
+            
             var xml = XDocument.Parse(apiResponse.ResponseBody);
 
             return CustomerMapper.MapToCustomer(xml);

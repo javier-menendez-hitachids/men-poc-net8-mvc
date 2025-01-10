@@ -4,28 +4,34 @@ using MenulioPocMvc.CustomerApi;
 using MenulioPocMvc.CustomerApi.Interfaces;
 using MenulioPocMvc.CustomerApi.Services;
 using MenulioPocMvc.CustomerApi.Services.Interface;
+using MenulioPocMvc.Telemetry;
+using MenulioPocMvc.Telemetry.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddSingleton<Configuration>();
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+builder.Configuration.AddEnvironmentVariables();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddHealthChecks();
 builder.Services.AddContentful(builder.Configuration);
 
-builder.Services.AddHttpClient<CustomerApiClient>(client =>
+builder.Services.AddHttpClient<HttpRequestClient>(client =>
 {
-    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", builder.Configuration["CustomerApiClient.SubscriptionKey"]);
+    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", builder.Configuration["CustomerApi.SubscriptionKey"]);
 });
 
-builder.Services.AddScoped<ICustomerApiClient, CustomerApiClient>();
+builder.Services.AddSingleton<Configuration>();
+
+builder.Services.AddScoped<IHttpRequestClient, HttpRequestClient>();
+builder.Services.AddScoped<IApiCalls, ApiCalls>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<ITelemetryHelper, TelemetryHelper>();
 
 var app = builder.Build();
 
-builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-builder.Configuration.AddEnvironmentVariables();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
