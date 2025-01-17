@@ -1,0 +1,230 @@
+{
+  "sys": {
+    "type": "Changeset",
+    "createdAt": "1736959877898",
+    "space": {
+      "sys": {
+        "id": "o18rrodrm1xn",
+        "linkType": "Space",
+        "type": "Link"
+      }
+    },
+    "source": {
+      "sys": {
+        "id": "privilege_VRDX",
+        "linkType": "Environment",
+        "type": "Link"
+      }
+    },
+    "target": {
+      "sys": {
+        "id": "master",
+        "linkType": "Environment",
+        "type": "Link"
+      }
+    }
+  },
+  "items": [
+    {
+      "changeType": "add",
+      "entity": {
+        "sys": {
+          "type": "Link",
+          "linkType": "Entry",
+          "id": "22JhEm9cEWWIJMCVEReBVv"
+        }
+      },
+      "data": {
+        "sys": {
+          "id": "22JhEm9cEWWIJMCVEReBVv",
+          "type": "Entry",
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "globalProperties"
+            }
+          }
+        },
+        "fields": {
+          "id": {
+            "en-US": "Membership Global Properies"
+          },
+          "levelTiers": {
+            "en-US": [
+              {
+                "sys": {
+                  "type": "Link",
+                  "linkType": "Entry",
+                  "id": "4eLyvTBVy7LyKIxiW9Kcmh"
+                }
+              },
+              {
+                "sys": {
+                  "type": "Link",
+                  "linkType": "Entry",
+                  "id": "4vwSXVEVQDOWlkP9ekVzsU"
+                }
+              },
+              {
+                "sys": {
+                  "type": "Link",
+                  "linkType": "Entry",
+                  "id": "nc7ZAgTgn4KzSajd3XJc7"
+                }
+              }
+            ]
+          },
+          "levelLabel": {
+            "en-US": "Level"
+          },
+          "dasboardRefreshRetryInterval": {
+            "en-US": 10
+          },
+          "dasboardRefreshMaxRetries": {
+            "en-US": 2
+          }
+        }
+      }
+    },
+    {
+      "changeType": "add",
+      "entity": {
+        "sys": {
+          "type": "Link",
+          "linkType": "Entry",
+          "id": "7gcYniouCMaptwknfxJPCr"
+        }
+      },
+      "data": {
+        "sys": {
+          "id": "7gcYniouCMaptwknfxJPCr",
+          "type": "Entry",
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "resourceSet"
+            }
+          }
+        },
+        "fields": {
+          "name": {
+            "en-US": "Dashboard Refresh Policy"
+          }
+        }
+      }
+    },
+    {
+      "changeType": "add",
+      "entity": {
+        "sys": {
+          "type": "Link",
+          "linkType": "Entry",
+          "id": "nc7ZAgTgn4KzSajd3XJc7"
+        }
+      },
+      "data": {
+        "sys": {
+          "id": "nc7ZAgTgn4KzSajd3XJc7",
+          "type": "Entry",
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "levelTier"
+            }
+          }
+        },
+        "fields": {
+          "name": {
+            "en-US": "Level 3"
+          },
+          "title": {
+            "en-US": "Level 3"
+          },
+          "text": {
+            "en-US": "Level 3"
+          },
+          "colour": {
+            "en-US": "#667856"
+          }
+        }
+      }
+    },
+    {
+      "changeType": "add",
+      "entity": {
+        "sys": {
+          "type": "Link",
+          "linkType": "Entry",
+          "id": "4vwSXVEVQDOWlkP9ekVzsU"
+        }
+      },
+      "data": {
+        "sys": {
+          "id": "4vwSXVEVQDOWlkP9ekVzsU",
+          "type": "Entry",
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "levelTier"
+            }
+          }
+        },
+        "fields": {
+          "name": {
+            "en-US": "Level 2"
+          },
+          "title": {
+            "en-US": "Level 2"
+          },
+          "text": {
+            "en-US": "Level 2"
+          },
+          "colour": {
+            "en-US": "#E16E06"
+          }
+        }
+      }
+    },
+    {
+      "changeType": "add",
+      "entity": {
+        "sys": {
+          "type": "Link",
+          "linkType": "Entry",
+          "id": "4eLyvTBVy7LyKIxiW9Kcmh"
+        }
+      },
+      "data": {
+        "sys": {
+          "id": "4eLyvTBVy7LyKIxiW9Kcmh",
+          "type": "Entry",
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "levelTier"
+            }
+          }
+        },
+        "fields": {
+          "name": {
+            "en-US": "Level 1"
+          },
+          "title": {
+            "en-US": "Level 1"
+          },
+          "text": {
+            "en-US": "Level 1"
+          },
+          "colour": {
+            "en-US": "#033C6D"
+          }
+        }
+      }
+    }
+  ]
+}
